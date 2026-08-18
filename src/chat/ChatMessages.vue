@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 overflow-y-auto p-4">
+  <div ref="chatRef" class="flex-1 overflow-y-auto p-4">
     <div class="flex flex-col space-y-2">
       <!-- Messages go here -->
       <!-- Example Message -->
@@ -9,12 +9,30 @@
 </template>
 
 <script setup lang="ts">
-  import type { ChatMessage } from '@/interfaces/chat-message.interface.ts'
-  import ChatBubble from './ChatBubble.vue'
+  import type { ChatMessage } from '@/interfaces/chat-message.interface.ts';
+  import ChatBubble from './ChatBubble.vue';
+  import { nextTick, ref, watch } from 'vue';
 
   interface Props {
-    messages: ChatMessage[]
+    messages: ChatMessage[];
   }
 
-  defineProps<Props>()
+  const { messages } = defineProps<Props>();
+
+  const chatRef = ref<HTMLDivElement | null>();
+
+  watch(
+    () => messages,
+    () => {
+      nextTick(() => {
+        chatRef.value?.scrollTo({
+          top: chatRef.value.scrollHeight,
+          behavior: 'smooth',
+        });
+      });
+    },
+    {
+      deep: true,
+    },
+  );
 </script>
