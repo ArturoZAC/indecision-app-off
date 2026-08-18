@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
-  message: string
-  isMine: boolean
-  image?: string
-}
+  interface Props {
+    message: string
+    isMine: boolean
+    image?: string
+  }
 
-defineProps<Props>()
+  defineProps<Props>()
 </script>

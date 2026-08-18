@@ -11,26 +11,22 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue';
+  import { computed, defineComponent, ref } from 'vue'
 
+  export default defineComponent({
+    props: {
+      value: { type: Number, required: true },
+    },
+    setup(props) {
+      const counter = ref(props.value)
+      const squareCounter = computed(() => {
+        return counter.value * counter.value
+      })
 
-export default defineComponent({
-  props: {
-    value: { type: Number, required: true}
-  },
-  setup( props ){
-    const counter = ref(props.value);
-    const squareCounter = computed(() => {
-      return counter.value * counter.value
-    })
-
-
-    return {
-      counter,
-      squareCounter
-    }
-  }
-})
-
-
+      return {
+        counter,
+        squareCounter,
+      }
+    },
+  })
 </script>

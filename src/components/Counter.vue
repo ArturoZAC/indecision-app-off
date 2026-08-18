@@ -11,23 +11,23 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounter } from './composables/useCounter';
+  import { useCounter } from './composables/useCounter'
 
   interface Props {
-    value: number;
+    value: number
   }
 
-  const props = defineProps<Props>();
+  const props = defineProps<Props>()
 
-  const { counter,squareCounter} = useCounter(props.value);
+  const { counter, squareCounter } = useCounter(props.value)
 
   // import { computed, ref } from 'vue';
 
   // const props = defineProps({
-    // value: {
-      // type: Number,
-      // required: true
-    // }
+  // value: {
+  // type: Number,
+  // required: true
+  // }
   // })
 
   // interface Props {

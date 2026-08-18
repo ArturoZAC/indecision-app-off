@@ -9,12 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import type { ChatMessage } from '@/interfaces/chat-message.interface.ts'
-import ChatBubble from './ChatBubble.vue'
+  import type { ChatMessage } from '@/interfaces/chat-message.interface.ts'
+  import ChatBubble from './ChatBubble.vue'
 
-interface Props {
-  messages: ChatMessage[]
-}
+  interface Props {
+    messages: ChatMessage[]
+  }
 
-defineProps<Props>()
+  defineProps<Props>()
 </script>

@@ -36,19 +36,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-const emits = defineEmits<{
-  sendMessage: [text: string]
-}>()
+  const emits = defineEmits<{
+    sendMessage: [text: string]
+  }>()
 
-const message = ref<string>('')
+  const message = ref<string>('')
 
-const sendMessage = () => {
-  if (!message.value) return
+  const sendMessage = () => {
+    if (!message.value) return
 
-  emits('sendMessage', message.value)
+    emits('sendMessage', message.value)
 
-  message.value = ''
-}
+    message.value = ''
+  }
 </script>
